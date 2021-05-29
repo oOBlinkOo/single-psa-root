@@ -1,0 +1,5 @@
+{
+    "imports":{
+        "@my/holepage":"//localhost:4300/main.js"
+    }
+}
