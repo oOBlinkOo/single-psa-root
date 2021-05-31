@@ -45,13 +45,29 @@
   <script type="systemjs-importmap">
     {
       "imports": {
+        "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
         "@my/root-config": "//localhost:4200/my-root-config.js",
-        "@my/holepage": "//localhost:4300/main.js"
+        "@my/holepage": "//localhost:4300/main.js",
+        "@my/react": "http://localhost:4400/MyReact-MyReactName.js"
+     
       }
     }
   </script>
   <% } %>
-
+  <script >
+    window.myapp = {
+    counter: 0,
+    incrementor: () => {
+        window.myapp.counter += 1;
+        window.dispatchEvent(new Event('onIncrement'));
+    },
+    decrementor: () => {
+        window.myapp.counter -= 1;
+        window.dispatchEvent(new Event('onDecrement'));
+    }
+};
+  </script>
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
     Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
